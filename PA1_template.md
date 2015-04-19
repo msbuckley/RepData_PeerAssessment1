@@ -72,6 +72,8 @@ We can see from the plot that the mean steps is very low until about 5:30 where 
 aroung 9:30 then the average starts falling to zero.
 
 ## Imputing missing values
+In this section, I replace the missing values with imputed values. My strategy is to replace each NA with the mean value for that interval from all the days reported.
+
 
 ```r
 #Calculate and report the total number of missing values in the dataset
@@ -148,13 +150,6 @@ means.weekend <- sapply(intervals, function(x) mean(activity.imputed[activity.im
 interval_means <- data.frame(interval=rep(intervals, times=2), means=append(means.weekday, means.weekend), day=as.factor(rep(c("weekday", "weekend"), each=length(intervals))))
 
 library(ggplot2)
-```
-
-```
-## Warning: package 'ggplot2' was built under R version 3.1.3
-```
-
-```r
 p <- ggplot(interval_means, aes(interval, means)) + facet_grid(day ~ .) +
     labs(title="weekday", x="intervals", y="means") 
 p + geom_line()

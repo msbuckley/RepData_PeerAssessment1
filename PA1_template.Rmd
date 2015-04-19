@@ -47,6 +47,8 @@ We can see from the plot that the mean steps is very low until about 5:30 where 
 aroung 9:30 then the average starts falling to zero.
 
 ## Imputing missing values
+In this section, I replace the missing values with imputed values. My strategy is to replace each NA with the mean value for that interval from all the days reported.
+
 ```{r}
 
 #Calculate and report the total number of missing values in the dataset
